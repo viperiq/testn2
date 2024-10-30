@@ -1,0 +1,167 @@
+/* Global Styles */
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: "Inter", sans-serif;
+}
+
+/* Headings */
+h2 {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bolder;
+  margin: 1.5rem 0;
+}
+
+/* Home Section */
+#home {
+  margin: 20px 0 0.5rem;
+  text-align: center;
+  padding: 10px;
+}
+
+#home div {
+  flex-direction: column;
+  gap: 10px;
+}
+
+/* Responsive Layout for .me */
+.me {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;  /* Ensures proper wrapping on small screens */
+  gap: 20px;
+  padding: 10px;
+}
+
+/* Paragraph Styling */
+.me p {
+  width: 300px;
+  text-align: justify;
+  margin: 0 20px;
+}
+
+/* Image Styling */
+.me img {
+  border-radius: 5px;
+  width: 300px;
+  height: 200px;
+  object-fit: cover; /* Ensures the image is scaled nicely */
+  padding: 10px;
+  border: 0 solid black;
+  border-radius: 15px;
+}
+
+/* Social Media Icons */
+.socialm {
+  display: flex;
+  justify-content: center;
+  margin: 10px;
+}
+
+.socialm a img {
+  width: 30px;
+  margin: 15px;
+}
+
+/* Map Styling */
+.map {
+  display: flex;
+  justify-content: center;
+  margin: 10px 0;
+}
+
+.map iframe {
+  border-radius: 10px;
+  border: none;
+  margin-bottom: 15px;
+  width: 90%; /* Responsive map size */
+  height: 250px;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+  .me p {
+    width: 100%; /* Full width on smaller screens */
+    margin: 10px 10px;
+  }
+
+  .me img {
+    width: 100%;
+    height: auto; /* Adjust height to maintain aspect ratio */
+  }
+
+  .socialm a img {
+    width: 25px; /* Slightly smaller icons on small screens */
+  }
+
+  iframe {
+    width: 90%; /* Responsive map size */
+    height: 250px;
+  }
+}
+/* Home Section Styling */
+#home {
+  padding: 20px;
+  min-height: 70vh; /* Ensures a good section height */
+  background-color: #f8f9fa; /* Light background for better visibility */
+}
+
+#home h1 {
+  font-size: 2rem;
+  font-weight: bold;
+  margin-bottom: 10px;
+  text-align: center;
+}
+
+#home p {
+  font-size: 1.1rem;
+  margin-bottom: 15px;
+  text-align: center;
+  max-width: 600px;
+}
+
+/* Styling the Image */
+#welcomeimg img {
+  width: 300px;
+  height: auto;
+  border-radius: 10px;
+  object-fit: cover; /* Ensures the image scales nicely */
+  margin-top: 10px;
+}
+
+/* Flex Container Styling */
+#home .d-flex {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  gap: 20px; /* Adds space between elements */
+  flex-wrap: wrap; /* Ensures elements wrap on smaller screens */
+  text-align: center;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  #home {
+    flex-direction: column;
+    padding: 15px;
+  }
+
+  #welcomeimg img {
+    width: 100%; /* Full width on smaller screens */
+    max-width: 400px; /* Prevents it from getting too large */
+    margin: 10px 0;
+  }
+
+  #home h1 {
+    font-size: 1.8rem;
+  }
+
+  #home p {
+    font-size: 1rem;
+    padding: 0 10px;
+  }
+}
