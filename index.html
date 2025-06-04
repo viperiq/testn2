@@ -83,21 +83,21 @@
     </div>
 </section>
 
-<!-- Projects Section -->
-<section id="projects">
-    <h2>Some of My Work</h2>
-    <iframe src="https://publuu.com/flip-book/702322/1561310/page/1?embed&transparent" 
-            width="100%" height="380" frameborder="0" 
-            allow="clipboard-write; autoplay; fullscreen" 
-            class="publuuflip"></iframe>
+ <script>
+    const username = 'viperiq';
+    fetch(`https://api.github.com/users/${viperiq}/repos`)
+      .then(response => response.json())
+      .then(repos => {
+        const list = document.getElementById('repo-list');
+        repos.forEach(repo => {
+          const item = document.createElement('li');
+          item.innerHTML = `<a href="${repo.html_url}" target="_blank">${repo.name}</a>: ${repo.description || 'No description'}`;
+          list.appendChild(item);
+        });
+      })
+      .catch(error => console.error('Error fetching repos:', error));
+  </script>
     
-    <iframe src="https://publuu.com/flip-book/702322/1561295/page/1?embed&transparent" 
-            width="100%" height="380" frameborder="0" 
-            allow="clipboard-write; autoplay; fullscreen" 
-            class="publuuflip"></iframe>
-</section>
-
-<!-- Contact Section -->
 <section id="contact">
     <h2>Contact Me</h2>
     <div class="socialm">
