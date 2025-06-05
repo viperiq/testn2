@@ -1,15 +1,39 @@
+:root {
+  --color-bg: #23272a;
+  --color-bg-light: #1e2226;
+  --color-primary: #5ecbfa;
+  --color-secondary: #6ee7b7;
+  --color-accent: #2397ef;
+  --color-text: #e6e6e6;
+  --color-text-light: #f8fafc;
+  --color-muted: #b0b3b8;
+  --color-border: #31363b;
+  --shadow-main: 0 4px 24px #0008;
+  --shadow-card: 0 4px 24px #5ecbfa11, 0 1.5px 6px #0006;
+  --radius-main: 18px;
+  --radius-btn: 12px;
+  --gradient-main: linear-gradient(90deg, var(--color-primary) 60%, var(--color-secondary) 100%);
+}
+
+/* =====================
+   Global Reset & Base
+   ===================== */
 body {
-  background: #0d1117;
-  color: #c9d1d9;
-  font-family: 'Inter', sans-serif;
+  background: var(--color-bg);
+  color: var(--color-text);
+  font-family: 'Inter', system-ui, sans-serif;
   margin: 0;
   min-height: 100vh;
 }
 
+/* =====================
+   Header Styling
+   ===================== */
 .gh-header {
-  background: #161b22;
-  border-bottom: 1px solid #21262d;
-  padding: 18px 0;
+  background: linear-gradient(90deg, var(--color-bg) 60%, var(--color-bg-light) 100%);
+  border-bottom: none;
+  box-shadow: var(--shadow-main);
+  padding: 24px 0 18px 0;
 }
 
 .gh-container {
@@ -19,7 +43,7 @@ body {
 }
 
 .gh-logo {
-  color: #58a6ff;
+  color: var(--color-primary);
   text-decoration: none;
   font-weight: 600;
   font-size: 1.1rem;
@@ -27,39 +51,55 @@ body {
   transition: color 0.2s;
 }
 .gh-logo:hover {
-  color: #1f6feb;
+  color: var(--color-secondary);
 }
 
 .gh-title {
   display: inline-block;
-  font-size: 1.5rem;
-  font-weight: 600;
+  font-size: 2rem;
+  font-weight: 700;
   margin: 0;
-  color: #c9d1d9;
+  color: var(--color-text-light);
   vertical-align: middle;
+  letter-spacing: 1.5px;
+  text-shadow: 0 2px 8px #0003;
 }
 
+/* =====================
+   Repo List Styling
+   ===================== */
 .gh-repo-list {
   list-style: none;
   padding: 0;
   margin: 36px 0 0 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 24px;
+  justify-items: center;
 }
 
 .gh-repo-item {
-  background: #161b22;
-  border: 1px solid #21262d;
-  border-radius: 8px;
-  margin-bottom: 22px;
-  padding: 22px 24px 16px 24px;
-  transition: box-shadow 0.2s, border 0.2s;
-  box-shadow: 0 2px 8px rgba(20, 20, 20, 0.08);
+  background: rgba(24, 26, 27, 0.96);
+  border: 1.5px solid var(--color-border);
+  border-radius: var(--radius-main);
+  margin-bottom: 0;
+  padding: 24px 22px 18px 22px;
+  transition: transform 0.2s, box-shadow 0.2s, border 0.2s, background 0.2s;
+  box-shadow: var(--shadow-card);
+  color: var(--color-text);
+  backdrop-filter: blur(2px);
+  cursor: pointer;
 }
 
 .gh-repo-item:hover {
-  border: 1px solid #30363d;
-  box-shadow: 0 4px 16px rgba(20, 20, 20, 0.13);
+  transform: translateY(-2px);
+  border: 1.5px solid var(--color-primary);
+  box-shadow: 0 8px 32px #5ecbfa22, 0 2px 8px #0008;
 }
 
+/* =====================
+   Repo Header & Name
+   ===================== */
 .gh-repo-header {
   display: flex;
   align-items: center;
@@ -68,17 +108,20 @@ body {
 }
 
 .gh-repo-name {
-  color: #58a6ff;
+  color: var(--color-primary);
   font-size: 1.18rem;
   font-weight: 600;
   text-decoration: none;
   transition: color 0.2s;
 }
 .gh-repo-name:hover {
-  color: #1f6feb;
+  color: var(--color-secondary);
   text-decoration: underline;
 }
 
+/* =====================
+   Badges & Meta
+   ===================== */
 .gh-badge {
   font-size: 0.78rem;
   padding: 2px 8px;
@@ -98,7 +141,7 @@ body {
 }
 
 .gh-repo-desc {
-  color: #8b949e;
+  color: var(--color-muted);
   margin-bottom: 10px;
   font-size: 1rem;
 }
@@ -107,7 +150,7 @@ body {
   display: flex;
   gap: 18px;
   font-size: 0.93rem;
-  color: #7ee787;
+  color: var(--color-secondary);
   align-items: center;
 }
 
@@ -116,13 +159,16 @@ body {
 }
 
 .gh-stars {
-  color: #f0f6fc;
+  color: var(--color-primary);
 }
 
 .gh-updated {
   color: #8b949e;
 }
 
+/* =====================
+   Responsive
+   ===================== */
 @media (max-width: 600px) {
   .gh-container {
     width: 99%;
