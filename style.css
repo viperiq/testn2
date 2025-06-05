@@ -158,7 +158,8 @@ h2::after {
   padding: 70px 20px 50px 20px;
   min-height: 70vh;
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
+  gap: 48px;
   align-items: center;
   justify-content: center;
   text-align: center;
@@ -190,15 +191,26 @@ h2::after {
   letter-spacing: 0.2px;
 }
 
+#home > div:first-child {
+  flex: 1 1 0;
+  min-width: 280px;
+  max-width: 600px;
+}
+
 #welcomeimg {
-  width: 100%;
+  flex: 0 0 auto;
   display: flex;
-  justify-content: center;
-  margin-top: 22px;
+  justify-content: flex-end;
+  align-items: center;
+  margin-top: 0;
+  min-width: 180px;
+  max-width: 320px;
 }
 
 #welcomeimg img {
-  width: 160px;
+  width: 220px;
+  max-width: 100%;
+  min-width: 120px;
   height: auto;
   border-radius: 18px;
   object-fit: cover;
@@ -222,6 +234,45 @@ h2::after {
   gap: 24px;
   width: 100%;
   text-align: center;
+}
+
+/* Responsive Home Section */
+@media (max-width: 900px) {
+  #home {
+    flex-direction: column;
+    gap: 24px;
+    align-items: center;
+    justify-content: center;
+    padding: 40px 8vw;
+  }
+  #welcomeimg {
+    justify-content: center;
+    margin-top: 16px;
+    max-width: 100%;
+  }
+  #welcomeimg img {
+    width: 140px;
+    min-width: 80px;
+    margin: 0 auto;
+  }
+}
+
+@media (max-width: 600px) {
+  #home {
+    flex-direction: column;
+    gap: 18px;
+    padding: 24px 2vw;
+  }
+  #welcomeimg {
+    justify-content: center;
+    margin-top: 12px;
+    max-width: 100%;
+  }
+  #welcomeimg img {
+    width: 90px;
+    min-width: 60px;
+    margin: 0 auto;
+  }
 }
 
 /* =====================
