@@ -664,3 +664,32 @@ pre code {
     background: rgba(35, 39, 42, 0.92);
   }
 }
+
+/* =====================
+   Social Media Icons
+   ===================== */
+.socialm {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 16px;
+  margin-top: 24px;
+}
+
+.socialm a {
+  display: inline-block;
+  transition: transform 0.2s, filter 0.2s;
+}
+
+.socialm a img {
+  width: 36px;
+  height: 36px;
+  transition: transform 0.2s, filter 0.2s;
+  margin-top: 20px;
+  filter: brightness(0) invert(1);
+}
+
+.socialm a img:hover {
+  transform: scale(1.1);
+  filter: brightness(1.2) invert(1);
+}
