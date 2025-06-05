@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>My GitHub Repositories</title>
+  <link rel="stylesheet" href="project-link.css">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
+</head>
+<body>
+  <header class="gh-header">
+    <div class="gh-container">
+      <a href="index.html" class="gh-logo">← Portfolio</a>
+      <h1 class="gh-title">GitHub Repositories</h1>
+    </div>
+  </header>
+  <main class="gh-container">
+    <ul id="gh-repo-list" class="gh-repo-list"></ul>
+  </main>
+  <script>
+    const username = 'viperiq';
+    fetch(`https://api.github.com/users/${username}/repos`)
+      .then(res => res.json())
+      .then(repos => {
+        const list = document.getElementById('gh-repo-list');
+        repos.sort((a, b) => b.stargazers_count - a.stargazers_count);
+        repos.forEach(repo => {
+          const li = document.createElement('li');
+          li.className = 'gh-repo-item';
+          li.innerHTML = `
+            <div class="gh-repo-header">
+              <a href="${repo.html_url}" target="_blank" class="gh-repo-name">${repo.name}</a>
+              ${repo.private ? '<span class="gh-badge gh-private">Private</span>' : ''}
+              ${repo.fork ? '<span class="gh-badge gh-fork">Fork</span>' : ''}
+            </div>
+            <div class="gh-repo-desc">${repo.description || ''}</div>
+            <div class="gh-repo-meta">
+              <span class="gh-lang">${repo.language || ''}</span>
+              <span class="gh-stars">★ ${repo.stargazers_count}</span>
+              <span class="gh-updated">Updated: ${new Date(repo.updated_at).toLocaleDateString()}</span>
+            </div>
+          `;
+          list.appendChild(li);
+        });
+      });
+  </script>
+</body>
+</html>

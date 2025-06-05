@@ -1,0 +1,134 @@
+body {
+  background: #0d1117;
+  color: #c9d1d9;
+  font-family: 'Inter', sans-serif;
+  margin: 0;
+  min-height: 100vh;
+}
+
+.gh-header {
+  background: #161b22;
+  border-bottom: 1px solid #21262d;
+  padding: 18px 0;
+}
+
+.gh-container {
+  width: 95%;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.gh-logo {
+  color: #58a6ff;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 1.1rem;
+  margin-right: 18px;
+  transition: color 0.2s;
+}
+.gh-logo:hover {
+  color: #1f6feb;
+}
+
+.gh-title {
+  display: inline-block;
+  font-size: 1.5rem;
+  font-weight: 600;
+  margin: 0;
+  color: #c9d1d9;
+  vertical-align: middle;
+}
+
+.gh-repo-list {
+  list-style: none;
+  padding: 0;
+  margin: 36px 0 0 0;
+}
+
+.gh-repo-item {
+  background: #161b22;
+  border: 1px solid #21262d;
+  border-radius: 8px;
+  margin-bottom: 22px;
+  padding: 22px 24px 16px 24px;
+  transition: box-shadow 0.2s, border 0.2s;
+  box-shadow: 0 2px 8px rgba(20, 20, 20, 0.08);
+}
+
+.gh-repo-item:hover {
+  border: 1px solid #30363d;
+  box-shadow: 0 4px 16px rgba(20, 20, 20, 0.13);
+}
+
+.gh-repo-header {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 6px;
+}
+
+.gh-repo-name {
+  color: #58a6ff;
+  font-size: 1.18rem;
+  font-weight: 600;
+  text-decoration: none;
+  transition: color 0.2s;
+}
+.gh-repo-name:hover {
+  color: #1f6feb;
+  text-decoration: underline;
+}
+
+.gh-badge {
+  font-size: 0.78rem;
+  padding: 2px 8px;
+  border-radius: 12px;
+  margin-left: 4px;
+  font-weight: 500;
+  background: #30363d;
+  color: #8b949e;
+}
+.gh-private {
+  background: #8b949e;
+  color: #161b22;
+}
+.gh-fork {
+  background: #238636;
+  color: #fff;
+}
+
+.gh-repo-desc {
+  color: #8b949e;
+  margin-bottom: 10px;
+  font-size: 1rem;
+}
+
+.gh-repo-meta {
+  display: flex;
+  gap: 18px;
+  font-size: 0.93rem;
+  color: #7ee787;
+  align-items: center;
+}
+
+.gh-lang {
+  color: #e3b341;
+}
+
+.gh-stars {
+  color: #f0f6fc;
+}
+
+.gh-updated {
+  color: #8b949e;
+}
+
+@media (max-width: 600px) {
+  .gh-container {
+    width: 99%;
+    padding: 0 2vw;
+  }
+  .gh-repo-item {
+    padding: 14px 8px 12px 8px;
+  }
+}
