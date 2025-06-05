@@ -1,17 +1,39 @@
 /* =====================
+   CSS Variables
+   ===================== */
+:root {
+  --color-bg: #23272a;
+  --color-bg-light: #1e2226;
+  --color-bg-dark: #181a1b;
+  --color-primary: #5ecbfa;
+  --color-secondary: #6ee7b7;
+  --color-accent: #2397ef;
+  --color-text: #e6e6e6;
+  --color-text-light: #f8fafc;
+  --color-muted: #b0b3b8;
+  --color-border: #31363b;
+  --shadow-main: 0 4px 24px #0008;
+  --shadow-card: 0 4px 24px #5ecbfa11, 0 1.5px 6px #0006;
+  --radius-main: 18px;
+  --radius-btn: 12px;
+  --gradient-main: linear-gradient(90deg, var(--color-primary) 60%, var(--color-secondary) 100%);
+  --gradient-brand: linear-gradient(90deg, var(--color-primary) 30%, var(--color-accent) 100%);
+}
+
+/* =====================
    Global Reset & Base
    ===================== */
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: "Inter", sans-serif;
+  font-family: "Inter", system-ui, sans-serif;
   scroll-behavior: smooth;
 }
 
 body {
-  background: linear-gradient(135deg, #181a1b 60%, #23272a 100%);
-  color: #e6e6e6;
+  background: var(--color-bg);
+  color: var(--color-text);
   line-height: 1.6;
   min-height: 100vh;
 }
@@ -20,8 +42,8 @@ body {
    Navbar Styling
    ===================== */
 nav.navbar {
-  background: linear-gradient(90deg, #23272a 60%, #1e2226 100%);
-  box-shadow: 0 4px 24px #0008;
+  background: linear-gradient(90deg, var(--color-bg) 60%, var(--color-bg-light) 100%);
+  box-shadow: var(--shadow-main);
   backdrop-filter: blur(8px);
   border-bottom: none;
  
@@ -30,7 +52,6 @@ nav.navbar {
 }
 
 .navbar .container-fluid {
-  
   background: rgba(30, 34, 38, 0.7);
   box-shadow: 0 2px 12px #2397ef22;
   padding: 0.3rem 1.2rem;
@@ -41,8 +62,10 @@ nav.navbar {
   letter-spacing: 2.5px;
   color: #f8fafc;
   text-shadow: 0 2px 12px #2397ef33, 0 1px 2px #000a;
-  background: linear-gradient(90deg, #5ecbfa 30%, #2397ef 100%);
+  background: var(--gradient-brand);
   background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
 
 .navbar-brand span {
@@ -59,16 +82,16 @@ nav.navbar {
   padding: 0.45rem 1.1rem;
   letter-spacing: 0.7px;
   transition: 
-    color 0.2s,
-    background 0.2s,
-    box-shadow 0.2s,
-    text-shadow 0.2s;
+    color 0.18s,
+    background 0.18s,
+    box-shadow 0.18s,
+    text-shadow 0.18s;
 }
 
 .navbar-nav .nav-link:hover,
 .navbar-nav .nav-link.active {
-  color: #23272a;
-  background: linear-gradient(90deg, #5ecbfa 60%, #6ee7b7 100%);
+  color: var(--color-bg);
+  background: var(--gradient-main);
   box-shadow: 0 2px 12px #2397ef33;
   text-shadow: 0 2px 8px #fff8;
 }
@@ -85,7 +108,7 @@ nav.navbar {
 }
 .navbar-toggler:hover {
   outline: none;
-  background: linear-gradient(90deg, #5ecbfa 60%, #6ee7b7 100%);
+  background: var(--gradient-main);
 }
 .navbar-toggler-icon {
   background-image: url("data:image/svg+xml,%3csvg viewBox='0 0 30 30' fill='none' stroke='white' stroke-width='2'%3e%3cline x1='4' y1='7' x2='26' y2='7'/%3e%3cline x1='4' y1='15' x2='26' y2='15'/%3e%3cline x1='4' y1='23' x2='26' y2='23'/%3e%3c/svg%3e");
@@ -104,7 +127,7 @@ h2 {
   position: relative;
   text-align: center;
   width: 100%;
-  color: #fff;
+  color: var(--color-text-light);
   letter-spacing: 1.5px;
   text-shadow: 0 2px 8px #0003;
   font-size: 2.3rem;
@@ -122,7 +145,7 @@ h2::after {
   transform: translateX(-50%);
   width: 70px;
   height: 4px;
-  background: linear-gradient(90deg, #5ecbfa 60%, #6ee7b7 100%);
+  background: var(--gradient-main);
   border-radius: 2px;
   opacity: 0.9;
 }
@@ -131,7 +154,7 @@ h2::after {
    Home Section
    ===================== */
 #home {
-  background: rgba(35, 39, 42, 0.92);
+  background: var(--color-bg) !important;
   padding: 70px 20px 50px 20px;
   min-height: 70vh;
   display: flex;
@@ -201,35 +224,11 @@ h2::after {
   text-align: center;
 }
 
-/* Responsive Home Section */
-@media (max-width: 1200px) {
-  #home h1 { font-size: 2rem; }
-  #welcomeimg img { width: 140px; }
-}
-
-@media (max-width: 900px) {
-  #home h1 { font-size: 1.7rem; }
-  #welcomeimg img { width: 120px; }
-}
-
-@media (max-width: 768px) {
-  #home { padding: 40px 8vw; }
-  #home h1 { font-size: 1.3rem; }
-  #home p { font-size: 1rem; padding: 0 10px; }
-  #welcomeimg img { width: 100px; margin: 16px auto 0 auto; }
-}
-
-@media (max-width: 480px) {
-  #home { padding: 24px 2vw; }
-  #home h1 { font-size: 1.05rem; }
-  #welcomeimg img { width: 70px; }
-}
-
 /* =====================
    About Me Section
    ===================== */
 #about {
-  background: linear-gradient(135deg, #23272a 60%, #181a1a 100%);
+  background: var(--color-bg) !important;
   padding: 60px 20px;
   position: relative;
   overflow: hidden;
@@ -238,6 +237,7 @@ h2::after {
   align-items: center;
   justify-content: center;
   text-align: center;
+  border-radius: 0 0 32px 32px;
 }
 #about h2 {
   margin-bottom: 24px;
@@ -248,13 +248,13 @@ h2::after {
   text-shadow: 0 2px 8px rgba(152, 150, 150, 0.395)
 }
 
-#about::before {
+.navbar::before {
   content: "";
   position: absolute;
   top: -120px;
   left: -120px;
-  width: 280px;
-  height: 280px;
+  width: 240px;
+  height: 240px;
   background: radial-gradient(circle, #2397ef4c 10%, transparent 50%);
   z-index: 0;
 }
@@ -277,7 +277,7 @@ h2::after {
   color: #e6e6e6;
   font-size: 1.12rem;
   background: rgba(35, 39, 42, 0.92);
-  border-radius: 18px;
+  border-radius: var(--radius-main);
   box-shadow: 0 8px 32px #5ecbfa11, 0 2px 8px #0007;
   padding: 32px 28px 24px 22px;
   position: relative;
@@ -293,7 +293,7 @@ h2::after {
   display: block;
   width: 48px;
   height: 4px;
-  background: linear-gradient(90deg, #5ecbfa 60%, #6ee7b7 100%);
+  background: var(--gradient-main);
   border-radius: 2px;
   margin-bottom: 18px;
 }
@@ -307,11 +307,11 @@ h2::after {
   width: 320px;
   height: 220px;
   object-fit: cover;
-  border-radius: 18px;
+  border-radius: var(--radius-main);
   box-shadow: 0 8px 32px #5ecbfa22, 0 2px 8px #0007;
   transition: transform 0.25s cubic-bezier(.4,2,.6,1), box-shadow 0.2s;
-  border: 3px solid #23272a;
-  background: #23272a;
+  border: 3px solid var(--color-bg);
+  background: var(--color-bg);
   margin: 0 auto;
 }
 
@@ -371,15 +371,15 @@ h2::after {
    Projects Section
    ===================== */
 #projects {
-  background: rgba(35, 39, 42, 0.95);
+  background: rgba(35, 39, 42, 0.92);
   padding: 60px 20px;
+  border-radius: 32px;
+  box-shadow: 0 6px 32px #0004;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   text-align: center;
-  border-radius: 32px;
-  box-shadow: 0 6px 32px #0004;
 }
 #projects h2 {
   margin-bottom: 20px;
@@ -400,14 +400,14 @@ h2::after {
 
 #repo-list .list-group-item {
   background: rgba(24, 26, 27, 0.96);
-  border: 1.5px solid #31363b;
+  border: 1.5px solid var(--color-border);
   border-radius: 14px;
+  box-shadow: var(--shadow-card);
   padding: 24px 22px 18px 22px;
   transition: transform 0.2s, box-shadow 0.2s, border 0.2s, background 0.2s;
   cursor: pointer;
   margin: 0 auto;
   color: #e6e6e6;
-  box-shadow: 0 4px 24px #5ecbfa11, 0 1.5px 6px #0006;
   backdrop-filter: blur(2px);
 }
 
@@ -420,15 +420,15 @@ h2::after {
    Contact Section
    ===================== */
 #contact {
-  background: linear-gradient(135deg, #181a1b 60%, #23272a 100%);
+  background: var(--color-bg)!important;
   padding: 60px 20px;
+  border-radius: 32px 32px 0 0;
+  box-shadow: 0 6px 32px #0004;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   text-align: center;
-  border-radius: 32px;
-  box-shadow: 0 6px 32px #0004;
 }
 
 #contact h2 {
@@ -460,9 +460,8 @@ h2::after {
 
 #contact input,
 #contact textarea {
-  background: rgba(255, 255, 255, 0.08);
-  border: 1.5px solid #31363b;
-  border-radius: 12px;
+  border: 1.5px solid var(--color-border);
+  border-radius: var(--radius-btn);
   padding: 12px 16px;
   color: #e6e6e6;
   font-size: 1rem;
@@ -471,15 +470,13 @@ h2::after {
 
 #contact input:focus,
 #contact textarea:focus {
-  outline: none;
-  border-color: #5ecbfa;
+  border-color: var(--color-primary);
   background: rgba(94, 203, 250, 0.1);
 }
 
 #contact button {
-  background: linear-gradient(90deg, #5ecbfa 60%, #6ee7b7 100%);
-  border: none;
-  border-radius: 12px;
+  background: var(--gradient-main);
+  border-radius: var(--radius-btn);
   padding: 12px 20px;
   color: #181a1a;
   font-size: 1.1rem;
@@ -530,27 +527,27 @@ footer p {
 }
 
 footer a {
-  color: #5ecbfa;
+  color: var(--color-primary);
   text-decoration: none;
   transition: color 0.2s;
 }
 
 footer a:hover {
-  color: #6ee7b7;
+  color: var(--color-secondary);
 }
 
 /* =====================
    Miscellaneous
    ===================== */
 hr {
+  background: linear-gradient(to right, transparent, var(--color-primary), transparent);
   border: 0;
   height: 1px;
-  background: linear-gradient(to right, transparent, #5ecbfa, transparent);
   margin: 1.5rem 0;
 }
 
 blockquote {
-  border-left: 4px solid #5ecbfa;
+  border-left: 4px solid var(--color-primary);
   padding-left: 1rem;
   margin: 0 0 1.5rem 0;
   color: #e6e6e6;
@@ -566,7 +563,7 @@ blockquote::after {
   right: 0;
   width: 10px;
   height: 100%;
-  background: linear-gradient(to right, #6ee7b7, transparent);
+  background: linear-gradient(to right, var(--color-secondary), transparent);
 }
 
 code {
@@ -612,56 +609,96 @@ pre code {
   border-radius: 4px;
 }
 
-/* Dark mode adjustments */
+/* =====================
+   Media Queries
+   ===================== */
+@media (max-width: 1200px) {
+  #home h1 { font-size: 2rem; }
+  #welcomeimg img { width: 140px; }
+}
+
+@media (max-width: 900px) {
+  #home h1 { font-size: 1.7rem; }
+  #welcomeimg img { width: 120px; }
+  #about .me { gap: 24px; }
+  #about .me img {
+    width: 90vw;
+    max-width: 340px;
+    height: auto;
+    margin: 0 auto;
+  }
+  #about .me p {
+    max-width: 95vw;
+    padding: 22px 12px 18px 12px;
+    margin: 0 auto;
+  }
+}
+
+@media (max-width: 768px) {
+  #home { padding: 40px 8vw; }
+  #home h1 { font-size: 1.3rem; }
+  #home p { font-size: 1rem; padding: 0 10px; }
+  #welcomeimg img { width: 100px; margin: 16px auto 0 auto; }
+  #about .me {
+    flex-direction: column;
+    gap: 18px;
+    align-items: center;
+    text-align: center;
+  }
+  #about .me p {
+    width: 100%;
+    margin: 0 10px;
+  }
+  #about .me img {
+    width: 100%;
+    max-width: 400px;
+    height: auto;
+    margin: 0 auto;
+  }
+}
+
+@media (max-width: 480px) {
+  #home { padding: 24px 2vw; }
+  #home h1 { font-size: 1.05rem; }
+  #welcomeimg img { width: 70px; }
+  #about { padding: 36px 4vw; }
+  #about .me p {
+    font-size: 1rem;
+    padding: 14px 6px 12px 6px;
+    margin: 0 auto;
+  }
+  #about .me img {
+    max-width: 98vw;
+    margin: 0 auto;
+  }
+}
+
+/* =====================
+   Dark Mode
+   ===================== */
 @media (prefers-color-scheme: dark) {
   body {
-    background: linear-gradient(135deg, #121314 60%, #181a1b 100%);
-    color: #e6e6e6;
+    background: linear-gradient(135deg, #121314 60%, var(--color-bg-dark) 100%);
+    color: var(--color-text);
   }
-
   nav.navbar {
-    background: linear-gradient(90deg, #1e2226 60%, #181a1b 100%);
-    box-shadow: 0 4px 24px #0008;
+    background: linear-gradient(90deg, var(--color-bg-light) 60%, var(--color-bg-dark) 100%);
+    box-shadow: var(--shadow-main);
   }
-
   .navbar .container-fluid {
     background: rgba(24, 26, 27, 0.7);
   }
-
-  #home {
-    background: rgba(35, 39, 42, 0.92);
-  }
-
   #about {
-    background: linear-gradient(135deg, #181a1b 60%, #121314 100%);
+    background: linear-gradient(135deg, var(--color-bg-dark) 60%, #121314 100%);
   }
-
   #projects {
     background: rgba(35, 39, 42, 0.95);
   }
-
   #contact {
-    background: linear-gradient(135deg, #121314 60%, #181a1b 100%);
+    background: linear-gradient(135deg, #121314 60%, var(--color-bg-dark) 100%);
   }
-
   footer {
     background: rgba(35, 39, 42, 0.95);
-  }
-
-  hr {
-    background: linear-gradient(to right, transparent, #5ecbfa, transparent);
-  }
-
-  blockquote {
-    border-left: 4px solid #5ecbfa;
-  }
-
-  code {
-    background: rgba(94, 203, 250, 0.1);
-  }
-
-  pre {
-    background: rgba(35, 39, 42, 0.92);
   }
 }
 
@@ -673,7 +710,7 @@ pre code {
   justify-content: center;
   align-items: center;
   gap: 16px;
-  margin-top: 24px;
+  margin-bottom: 20px;
 }
 
 .socialm a {
@@ -684,12 +721,11 @@ pre code {
 .socialm a img {
   width: 36px;
   height: 36px;
-  transition: transform 0.2s, filter 0.2s;
   margin-top: 20px;
   filter: brightness(0) invert(1);
 }
 
-.socialm a img:hover {
-  transform: scale(1.1);
-  filter: brightness(1.2) invert(1);
+.map-iframe {
+  border-radius: 16px;
+  overflow: hidden;
 }
